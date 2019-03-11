@@ -15,32 +15,37 @@ class Point {
 }
 
 class Drone {
-    constructor(id, battery) {
+    constructor(id, battery, location) {
         this.id = id;
         this.battery = battery;
         this.loaded = false;
+
+        // Initial location
+        this.location = location;
+
+        // CONSTANTS 
+        this.speed = 20;
         this.batteryDrownRateEmpty = 1;
         this.batteryDrownRateLoaded = 1;
-        this.location = new Point(12, -123);
 
         // log
         console.log(`Initiated drone with the following settings:`);
         console.log(`${JSON.stringify(this)}`);
     }
 
-    set setNewLocation(location) {
+    setNewLocation(location) {
       this.location = location;
     }
 
     // Start drowning the battery when the drone is flying
-    fly(newLocation) {
+    fly(goToLocation) {
 
-        let distance = Point.distance(this.location, newLocation);
-
+        let distance = Point.distance(this.location, goToLocation);
         console.log(`The distance is calculated: ${distance}`);
 
         // replace loop with for every point
-        for(let i = 0; i <= distance; i++) {
+        while (distance != 0) {
+          console.log(`Distance remaining: ${distance}`);
           if (this.battery == 0) {
             console.log('Drone battery is dead!');
             return;
@@ -49,12 +54,20 @@ class Drone {
           if (this.loaded == true) {this.battery -= this.batteryDrownRateLoaded;}
           
           this.battery -= this.batteryDrownRateEmpty;
-          this.location = 
+
+          // TODO: work more over this
+          let newLocation = this.location;
+          let angle = Math.atan2(goToLocation.y-this.location.y, goToLocation.x-this.location.x);
+          newLocation.x += Math.cos(angle); //*distance
+          newLocation.y += Math.sin(angle); //*distance
+          this.setNewLocation(newLocation);
+
+          distance -= 1;
 
           // log
           console.log('Drone is flying towards the destination!');
           console.log(`Battery level: ${this.battery}`);
-          console.log(`Location: ${this.location}`);
+          console.log(`Location: ${JSON.stringify(this.location)}`);
         }
     }
 
@@ -74,5 +87,5 @@ class Drone {
     }
 }
 
-let drone = new Drone(1, 100);
+let drone = new Drone(1, 100, new Point(20, -120));
 drone.fly(new Point(301, 123));
