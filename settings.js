@@ -1,0 +1,4 @@
+module.exports = {
+    BATTERY_DROWN_RATE_EMPTY: 1,
+    BATTERY_DROWN_RATE_LOADED: 1,
+}
