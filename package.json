@@ -1,0 +1,27 @@
+{
+  "name": "dronathon-generator",
+  "version": "1.0.0",
+  "description": "Generator for the dronathon hackathon challange",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mradkov/dronathon-generator.git"
+  },
+  "keywords": [
+    "dronathon",
+    "hackathon",
+    "drone"
+  ],
+  "author": "Milen Radkov <milenradkov@me.com> (http://mradkov.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mradkov/dronathon-generator/issues"
+  },
+  "homepage": "https://github.com/mradkov/dronathon-generator#readme"
+}
