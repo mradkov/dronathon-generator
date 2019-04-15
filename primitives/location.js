@@ -4,6 +4,10 @@ class Location {
         this.long = long;
     }
   
+    get () {
+        return [this.lat, this.long];
+    }
+
     static distance(a, b) {
         const dLat = a.lat - b.lat;
         const dLong = a.long - b.long;
