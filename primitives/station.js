@@ -1,8 +1,6 @@
-const Location = require('./location')
-const misc = require('./misc')
-const config = misc.station;
+const config = require('./misc').station;
 
-class Parcel {
+class Station {
     constructor(id, type, weight, location) {
         this.id = id;
         this.type = type;
@@ -44,4 +42,4 @@ class Parcel {
     }
 }
 
-module.exports = Parcel;
+module.exports = Station;

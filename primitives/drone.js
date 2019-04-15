@@ -1,18 +1,22 @@
-const Location = require('./location')
+const config = require('./misc').drone
+const uuid = require('node-uuid-generator')
 
 class Drone {
-    constructor(id, battery, location) {
-        this.id = id;
+    constructor(type, battery, location) {
+        this.id = uuid.generate();
+        this.type = type;
         this.battery = battery;
         this.loaded = false;
+
+        this.speed = config.types[type].speed;
+        this.carryingCapacity = config.types[type].storage.capacity;
 
         // Initial location
         this.location = location;
 
         // CONSTANTS 
-        this.speed = 20;
-        this.batteryDrownRateEmpty = 1;
-        this.batteryDrownRateLoaded = 1;
+        this.batteryDrownRateEmpty = config.types[type].battery.drown.empty;
+        this.batteryDrownRateLoaded = config.types[type].battery.drown.loaded;
 
         // log
         console.log(`Initiated drone with the following settings:`);
