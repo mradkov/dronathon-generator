@@ -1,26 +1,43 @@
 module.exports = {
     parcel: {
-        statuses: {
+        status: {
             waiting: 'waiting',
             picked: 'picked-up',
             dropped: 'dropped',
             delivered: 'delivered'
         },
-        types: {
-            box: 'box',
-            letter: 'letter'
-        },
-        weights: {
-            box: {
-                min: 0,
-                max: 3000
+        types: [
+            // box
+            {
+                name: 'box',
+                weights: {
+                    min: 0,
+                    max: 3000
+                }
             },
-            letter: {
-                min: 0,
-                max: 200
+            
+            //letter
+            {
+                name: 'letter',
+                weights: {
+                    min: 0,
+                    max: 200
+                }
             }
-        }
+        ],
+    },
+    station: {
+        types: [
+            //normal
+            {
+                name: 'normal',
+            },
+            
+            //fast charger
+            {
+                name: 'fast',
+            }
+        ]
     }
-    
     
 }

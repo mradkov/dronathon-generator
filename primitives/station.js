@@ -1,6 +1,6 @@
 const Location = require('./location')
 const misc = require('./misc')
-const config = misc.parcel;
+const config = misc.station;
 
 class Parcel {
     constructor(id, type, weight, location) {
@@ -15,7 +15,7 @@ class Parcel {
         console.log(`Initiated parcel the following settings:`);
         console.log(`${JSON.stringify(this)}`);
 
-        this.status = config.status.waiting;
+        this.status = config.statuses.waiting;
     }
 
     setNewLocation(location) {
@@ -23,12 +23,12 @@ class Parcel {
     }
 
     isAvailable() {
-        return this.status == config.status.waiting || this.status == config.status.dropped;
+        return this.status == config.statuses.waiting || this.status == config.statuses.dropped;
     }
   
     pick() {
         if (isAvailable()){
-            this.status = config.status.picked;
+            this.status = config.statuses.picked;
         }
         else {
             return false;
@@ -36,11 +36,11 @@ class Parcel {
     }
   
     drop() {
-        this.status = config.status.dropped;
+        this.status = config.statuses.dropped;
     }
 
     deliver() {
-        this.status = config.status.delivered;
+        this.status = config.statuses.delivered;
     }
 }
 

@@ -8,9 +8,10 @@ const helpers = require('./utils/helpers')
 const generator = require('./utils/generator');
 
 let drones = generator.drones(10);
-let packages = [];
+let parcels = generator.parcels(10);
 let chargingStations = [];
 
 
 
-console.log(drones);
+// console.log(drones);
+console.log(parcels);
