@@ -1,15 +1,15 @@
-var argv = require('minimist')(process.argv.slice(2), opts={alias: true});
-const math = require('mathjs')
-const classifyPoint = require("robust-point-in-polygon")
-const sofiaPoly = require('./geo/sofia-poly')
-const helpers = require('./utils/helpers')
 const generator = require('./utils/generator');
+const argv = require('yargs').argv
 
-let drones = generator.drones(10);
-let parcels = generator.parcels(10);
-let chargingStations = generator.stations(3);
+console.log("Initialing Dronathon Challenge:");
+console.log("...");
 
+if(!argv.d || !argv.p || !argv.s) {
+  console.log('Error: Missing arguments -d [drones<count>] -p [parcels<count>] -s [stations<count>]');
+  return false;
+}
 
-// console.log(drones);
-// console.log(parcels);
-// console.log(chargingStations);
+let drones = generator.drones(argv.d);
+let parcels = generator.parcels(argv.p);
+let chargingStations = generator.stations(argv.s);
+
