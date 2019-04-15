@@ -10,10 +10,6 @@ class Parcel {
         // Initial location
         this.location = location;
 
-        // log
-        console.log(`Initiated parcel the following settings:`);
-        console.log(`${JSON.stringify(this)}`);
-
         this.status = config.status.waiting;
     }
 

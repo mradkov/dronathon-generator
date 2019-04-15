@@ -70,11 +70,17 @@ module.exports = {
             //normal
             {
                 name: 'normal',
+                charging: {
+                    rate: 1
+                }
             },
             
             //fast charger
             {
                 name: 'fast',
+                charging: {
+                    rate: 2
+                }
             }
         ]
     }

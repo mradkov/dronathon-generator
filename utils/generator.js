@@ -10,7 +10,7 @@ const helpers = require('./helpers')
 module.exports = {
     drones(count) {
         let drones = [];
-        while(drones.length <= count) {
+        while(drones.length < count) {
             let newPoint = [helpers.randomWithRange(23.1, 23.5), helpers.randomWithRange(42.6, 42.8)];
             if (classifyPoint(sofiaPoly, newPoint) == -1) {
                 let drone = new Drone(Math.floor(Math.random()), 100, [newPoint[0], newPoint[1]]);
@@ -22,7 +22,7 @@ module.exports = {
 
     parcels(count) {
         let parcels = [];
-        while(parcels.length <= count) {
+        while(parcels.length < count) {
             let newPoint = [helpers.randomWithRange(23.1, 23.5), helpers.randomWithRange(42.6, 42.8)];
             if (classifyPoint(sofiaPoly, newPoint) == -1) {
                 // id, type, weight, location
@@ -45,11 +45,11 @@ module.exports = {
     
     stations(count) {
         let stations = [];
-        while(chargingStations.length <= count) {
+        while(stations.length < count) {
             let newPoint = [helpers.randomWithRange(23.1, 23.5), helpers.randomWithRange(42.6, 42.8)];
             if (classifyPoint(sofiaPoly, newPoint) == -1) {
-                let station = new Station(1, 100, [newPoint[0], newPoint[1]]);
-                chargingStations.push(station);
+                let station = new Station(Math.floor(Math.random()), [newPoint[0], newPoint[1]]);
+                stations.push(station);
             }
         }
         return stations;

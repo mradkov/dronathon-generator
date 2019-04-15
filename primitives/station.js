@@ -1,44 +1,19 @@
 const config = require('./misc').station;
+const uuid = require('node-uuid-generator')
 
 class Station {
-    constructor(id, type, weight, location) {
-        this.id = id;
+    constructor(type, location) {
+        this.id = uuid.generate();
         this.type = type;
-        this.weight = weight;
 
         // Initial location
         this.location = location;
 
-        // log
-        console.log(`Initiated parcel the following settings:`);
-        console.log(`${JSON.stringify(this)}`);
-
-        this.status = config.statuses.waiting;
+        this.status = true;
     }
 
-    setNewLocation(location) {
-        this.location = location;
-    }
-
-    isAvailable() {
-        return this.status == config.statuses.waiting || this.status == config.statuses.dropped;
-    }
-  
-    pick() {
-        if (isAvailable()){
-            this.status = config.statuses.picked;
-        }
-        else {
-            return false;
-        }
-    }
-  
-    drop() {
-        this.status = config.statuses.dropped;
-    }
-
-    deliver() {
-        this.status = config.statuses.delivered;
+    charge() {
+        this.status = false;
     }
 }
 

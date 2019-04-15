@@ -7,9 +7,9 @@ const generator = require('./utils/generator');
 
 let drones = generator.drones(10);
 let parcels = generator.parcels(10);
-let chargingStations = [];
-
+let chargingStations = generator.stations(3);
 
 
 console.log(drones);
 console.log(parcels);
+console.log(chargingStations);

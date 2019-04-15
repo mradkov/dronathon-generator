@@ -17,10 +17,6 @@ class Drone {
         // CONSTANTS 
         this.batteryDrownRateEmpty = config.types[type].battery.drown.empty;
         this.batteryDrownRateLoaded = config.types[type].battery.drown.loaded;
-
-        // log
-        console.log(`Initiated drone with the following settings:`);
-        console.log(`${JSON.stringify(this)}`);
     }
 
     setNewLocation(location) {
