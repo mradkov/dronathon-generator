@@ -28,6 +28,7 @@
   "dependencies": {
     "command-line-args": "^5.1.1",
     "minimist": "^1.2.0",
+    "node-uuid-generator": "^1.0.0",
     "robust-point-in-polygon": "^1.0.3"
   }
 }
