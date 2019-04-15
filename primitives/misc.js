@@ -45,6 +45,7 @@ module.exports = {
             dropped: 'dropped',
             delivered: 'delivered'
         },
+        warehouse: {},
         types: [
             // box
             {
@@ -83,6 +84,7 @@ module.exports = {
                 }
             }
         ]
+    },
+    warehouse: {
     }
-    
 }

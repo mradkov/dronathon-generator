@@ -2,8 +2,9 @@ const config = require('./misc').parcel;
 const uuid = require('node-uuid-generator')
 
 class Parcel {
-    constructor(type, weight, location) {
+    constructor(type, warehouse, weight, location) {
         this.id = uuid.generate();
+        this.warehouse = warehouse;
         this.type = type;
         this.weight = weight;
 

@@ -13,7 +13,11 @@ module.exports = {
         while(drones.length < count) {
             let newPoint = [helpers.randomWithRange(23.1, 23.5), helpers.randomWithRange(42.6, 42.8)];
             if (classifyPoint(sofiaPoly, newPoint) == -1) {
-                let drone = new Drone(Math.floor(Math.random()), 100, [newPoint[0], newPoint[1]]);
+                let drone = new Drone(
+                    Math.floor(Math.random()),
+                    100,
+                    [newPoint[0], newPoint[1]]
+                );
                 drones.push(drone);
             }
         }
@@ -29,6 +33,7 @@ module.exports = {
                 let type = Math.round(Math.random());
                 let parcel = new Parcel(
                     config.parcel.types[type].name,
+                    Math.floor(helpers.randomWithRange(0,5)),
                     Math.floor(
                         helpers.randomWithRange(
                             config.parcel.types[type].weights.min,
