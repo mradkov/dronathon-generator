@@ -10,6 +10,6 @@ let parcels = generator.parcels(10);
 let chargingStations = generator.stations(3);
 
 
-console.log(drones);
-console.log(parcels);
-console.log(chargingStations);
+// console.log(drones);
+// console.log(parcels);
+// console.log(chargingStations);
