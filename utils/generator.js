@@ -7,6 +7,8 @@ const config = require('../primitives/misc')
 const sofiaPoly = require('../geo/sofia-poly')
 const helpers = require('./helpers')
 
+//import regions
+
 module.exports = {
     drones(count) {
         let drones = [];
@@ -29,17 +31,39 @@ module.exports = {
         while(parcels.length < count) {
             let newPoint = [helpers.randomWithRange(23.1, 23.5), helpers.randomWithRange(42.6, 42.8)];
             if (classifyPoint(sofiaPoly, newPoint) == -1) {
-                // id, type, weight, location
+
+                let warehouse = Math.floor(helpers.randomWithRange(1,5)); 
+
+                // check region
+
+                    // central
+                    if (classifyPoint(config.warehouse[0].polygon, newPoint) == -1) {
+                        warehouse = 0;
+                    }
+                    // airport
+
+                    // softuni
+
+                    // west
+
+                    // south
+
+                    // north
+                
                 let type = Math.round(Math.random());
                 let parcel = new Parcel(
+                    // type
                     config.parcel.types[type].name,
-                    Math.floor(helpers.randomWithRange(0,5)),
+                    // warehouse
+                    warehouse,
+                    // weight
                     Math.floor(
                         helpers.randomWithRange(
                             config.parcel.types[type].weights.min,
                             config.parcel.types[type].weights.max
                         )
                     ),
+                    //location
                     [newPoint[0], newPoint[1]]
                 );
                 parcels.push(parcel);
