@@ -18,19 +18,85 @@
 
     <script>
 
-	var planes = [
-		["7C6B07",-40.99497,174.50808],
-		["7C6B38",-41.30269,173.63696],
-		["7C6CA1",-41.49413,173.5421],
-		["7C6CA2",-40.98585,174.50659],
-		["C81D9D",-40.93163,173.81726],
-		["C82009",-41.5183,174.78081],
-		["C82081",-41.42079,173.5783],
-		["C820AB",-42.08414,173.96632],
-		["C820B6",-41.51285,173.53274]
-		];
+// SETUP
 
-        var map = L.map('map').setView([42.697434, 23.321422], 12);
+
+    var drones = [["{\"id\":\"5f1d1f05-a5d6-428c-abd7-28c7966ef69d\",\"type\":0,\"battery\":100,\"loaded\":false,\"speed\":[10,17],\"carryingCapacity\":3000,\"location\":[23.404915006218232,42.627151006291335],\"batteryDrownRateEmpty\":1,\"batteryDrownRateLoaded\":1}",42.627151006291335,23.404915006218232],["{\"id\":\"e919c5ba-801f-490d-81e3-6b61aaa36206\",\"type\":0,\"battery\":100,\"loaded\":false,\"speed\":[10,17],\"carryingCapacity\":3000,\"location\":[23.34777956293635,42.65113801220524],\"batteryDrownRateEmpty\":1,\"batteryDrownRateLoaded\":1}",42.65113801220524,23.34777956293635],["{\"id\":\"2dd16e5f-ce41-436e-916f-353fb15a3034\",\"type\":0,\"battery\":100,\"loaded\":false,\"speed\":[10,17],\"carryingCapacity\":3000,\"location\":[23.42642378282491,42.69356040448482],\"batteryDrownRateEmpty\":1,\"batteryDrownRateLoaded\":1}",42.69356040448482,23.42642378282491],["{\"id\":\"2e18bfc5-e2e1-4855-ab33-3bc53c65c559\",\"type\":0,\"battery\":100,\"loaded\":false,\"speed\":[10,17],\"carryingCapacity\":3000,\"location\":[23.31297223602384,42.73897657803614],\"batteryDrownRateEmpty\":1,\"batteryDrownRateLoaded\":1}",42.73897657803614,23.31297223602384],["{\"id\":\"1f4496f3-06fa-4fcc-bbbb-d5055cf48d78\",\"type\":0,\"battery\":100,\"loaded\":false,\"speed\":[10,17],\"carryingCapacity\":3000,\"location\":[23.294532015653097,42.70088700064311],\"batteryDrownRateEmpty\":1,\"batteryDrownRateLoaded\":1}",42.70088700064311,23.294532015653097],["{\"id\":\"ce67695d-821c-435b-8b9c-d636b2b4d064\",\"type\":0,\"battery\":100,\"loaded\":false,\"speed\":[10,17],\"carryingCapacity\":3000,\"location\":[23.25757552056696,42.705555698618056],\"batteryDrownRateEmpty\":1,\"batteryDrownRateLoaded\":1}",42.705555698618056,23.25757552056696],["{\"id\":\"ef6a7555-b66a-4462-a481-27cb2ed70baf\",\"type\":0,\"battery\":100,\"loaded\":false,\"speed\":[10,17],\"carryingCapacity\":3000,\"location\":[23.343415973992656,42.70152279890849],\"batteryDrownRateEmpty\":1,\"batteryDrownRateLoaded\":1}",42.70152279890849,23.343415973992656],["{\"id\":\"c6528816-0671-4a12-be3a-3a8c4811ac3e\",\"type\":0,\"battery\":100,\"loaded\":false,\"speed\":[10,17],\"carryingCapacity\":3000,\"location\":[23.294295402967187,42.65828481320664],\"batteryDrownRateEmpty\":1,\"batteryDrownRateLoaded\":1}",42.65828481320664,23.294295402967187],["{\"id\":\"d3ec7706-9169-4c28-b8d0-12179ad8cd28\",\"type\":0,\"battery\":100,\"loaded\":false,\"speed\":[10,17],\"carryingCapacity\":3000,\"location\":[23.36292800780995,42.64761555727982],\"batteryDrownRateEmpty\":1,\"batteryDrownRateLoaded\":1}",42.64761555727982,23.36292800780995],["{\"id\":\"aaa81f95-2d88-404d-a4bf-82db9a8f8ffa\",\"type\":0,\"battery\":100,\"loaded\":false,\"speed\":[10,17],\"carryingCapacity\":3000,\"location\":[23.36059543172496,42.62777711786364],\"batteryDrownRateEmpty\":1,\"batteryDrownRateLoaded\":1}",42.62777711786364,23.36059543172496]];
+    var parcels = [["{\"id\":\"f5255686-8705-41f9-b60f-523f817180a6\",\"type\":\"letter\",\"weight\":178,\"location\":[23.337990555049924,42.715470454734735],\"status\":\"waiting\"}",42.715470454734735,23.337990555049924],["{\"id\":\"3e501717-6837-4ff5-a50a-c4523ff3b2f9\",\"type\":\"box\",\"weight\":1453,\"location\":[23.37140288178462,42.621947226574676],\"status\":\"waiting\"}",42.621947226574676,23.37140288178462],["{\"id\":\"3c3b037e-5878-4854-b194-4140fa488933\",\"type\":\"box\",\"weight\":758,\"location\":[23.39684031942903,42.711404512169686],\"status\":\"waiting\"}",42.711404512169686,23.39684031942903],["{\"id\":\"fd736f17-a87c-412c-b856-ee2b3f50d064\",\"type\":\"box\",\"weight\":2053,\"location\":[23.300888103027276,42.68071101457006],\"status\":\"waiting\"}",42.68071101457006,23.300888103027276],["{\"id\":\"20ead988-abc3-4f51-a62b-15881d11c626\",\"type\":\"box\",\"weight\":2570,\"location\":[23.28794585179038,42.68041033281905],\"status\":\"waiting\"}",42.68041033281905,23.28794585179038],["{\"id\":\"60aa2954-ab4b-4387-9429-23651552375f\",\"type\":\"box\",\"weight\":1122,\"location\":[23.30696091158309,42.718815737052175],\"status\":\"waiting\"}",42.718815737052175,23.30696091158309],["{\"id\":\"e5d60535-14ac-48be-965c-1244430af003\",\"type\":\"letter\",\"weight\":0,\"location\":[23.318936202919506,42.655678044354424],\"status\":\"waiting\"}",42.655678044354424,23.318936202919506],["{\"id\":\"04aa7ee0-4cac-41a7-9ef6-5789076bede7\",\"type\":\"letter\",\"weight\":175,\"location\":[23.295638512683144,42.74797426183588],\"status\":\"waiting\"}",42.74797426183588,23.295638512683144],["{\"id\":\"df04e8b1-ffa6-4a9a-9cc1-dbfe2a9ee02a\",\"type\":\"box\",\"weight\":1633,\"location\":[23.233202564172,42.68854095049172],\"status\":\"waiting\"}",42.68854095049172,23.233202564172],["{\"id\":\"5a23863d-fbad-4c4b-96ec-cf85fc496426\",\"type\":\"box\",\"weight\":248,\"location\":[23.23984016814074,42.70077474599634],\"status\":\"waiting\"}",42.70077474599634,23.23984016814074],["{\"id\":\"77654f4b-67ab-46e3-8723-b53ecf2c8c37\",\"type\":\"letter\",\"weight\":86,\"location\":[23.20183005347567,42.71497565478989],\"status\":\"waiting\"}",42.71497565478989,23.20183005347567],["{\"id\":\"2f19818f-6676-4f98-b91b-dd28b752753f\",\"type\":\"letter\",\"weight\":98,\"location\":[23.28258123829472,42.6798613314467],\"status\":\"waiting\"}",42.6798613314467,23.28258123829472],["{\"id\":\"f5ea75a1-25ec-4cd1-a620-652bba3ff5c2\",\"type\":\"box\",\"weight\":822,\"location\":[23.24869485418219,42.73875902796257],\"status\":\"waiting\"}",42.73875902796257,23.24869485418219],["{\"id\":\"6c82d277-6968-45f5-a3ed-d7c12a79f89b\",\"type\":\"box\",\"weight\":2307,\"location\":[23.32013275414491,42.69249358326697],\"status\":\"waiting\"}",42.69249358326697,23.32013275414491],["{\"id\":\"9004727e-3244-4dca-bab5-3edd8de6b0c8\",\"type\":\"box\",\"weight\":343,\"location\":[23.32294125251416,42.703437663225515],\"status\":\"waiting\"}",42.703437663225515,23.32294125251416],["{\"id\":\"379d181a-c6c2-4c8e-a3a1-cebc781edc3b\",\"type\":\"letter\",\"weight\":112,\"location\":[23.37332919927101,42.677429505845026],\"status\":\"waiting\"}",42.677429505845026,23.37332919927101],["{\"id\":\"a7195718-3285-4ac0-b3bf-1df18b5f1fde\",\"type\":\"box\",\"weight\":1515,\"location\":[23.38261021395866,42.71977869044707],\"status\":\"waiting\"}",42.71977869044707,23.38261021395866],["{\"id\":\"4249901b-0afc-4128-91d5-13eccecc3991\",\"type\":\"box\",\"weight\":2933,\"location\":[23.311857461603267,42.751907042588755],\"status\":\"waiting\"}",42.751907042588755,23.311857461603267],["{\"id\":\"2da2da2f-49bd-4118-ab73-6583304fa760\",\"type\":\"box\",\"weight\":68,\"location\":[23.30238336579781,42.644803815069146],\"status\":\"waiting\"}",42.644803815069146,23.30238336579781],["{\"id\":\"c0499ff3-702a-4de6-a77e-0c1ae708eea7\",\"type\":\"box\",\"weight\":2641,\"location\":[23.233496044341475,42.74113226753778],\"status\":\"waiting\"}",42.74113226753778,23.233496044341475]];
+    var stations = [["{\"id\":\"cf40a816-85cc-4d72-85de-220a09072542\",\"type\":0,\"location\":[23.318186746370685,42.66337963952176],\"status\":true}",42.66337963952176,23.318186746370685],["{\"id\":\"58e57bdb-21d3-4af5-87ca-545a064d85ef\",\"type\":0,\"location\":[23.307830976295584,42.694978832786795],\"status\":true}",42.694978832786795,23.307830976295584],["{\"id\":\"223c97dc-70cc-4ccf-9252-280c94749b81\",\"type\":0,\"location\":[23.301703249390993,42.72411932675522],\"status\":true}",42.72411932675522,23.301703249390993],["{\"id\":\"525ac356-f366-4cfc-b84e-9bd241261d98\",\"type\":0,\"location\":[23.314307850159626,42.696219150387705],\"status\":true}",42.696219150387705,23.314307850159626],["{\"id\":\"7363ae40-032a-4397-9ade-61d8d6c0bfd7\",\"type\":0,\"location\":[23.232169734046018,42.71923658348623],\"status\":true}",42.71923658348623,23.232169734046018],["{\"id\":\"fbd37ad9-b871-43ec-a5f9-0087a99e1d2e\",\"type\":0,\"location\":[23.38604292376478,42.66674265457991],\"status\":true}",42.66674265457991,23.38604292376478],["{\"id\":\"7cfe06c7-37b0-43ea-b0ff-99bb4b93a293\",\"type\":0,\"location\":[23.339205887384562,42.664288846127015],\"status\":true}",42.664288846127015,23.339205887384562],["{\"id\":\"f945787f-c83d-44c8-965f-238c90b578e1\",\"type\":0,\"location\":[23.285983326982617,42.67288062152617],\"status\":true}",42.67288062152617,23.285983326982617],["{\"id\":\"c03d03fe-d409-43a5-9121-cfdcbc66c8f1\",\"type\":0,\"location\":[23.234178525628714,42.7322783120933],\"status\":true}",42.7322783120933,23.234178525628714],["{\"id\":\"db13bc43-d494-42b0-b40d-da26c183971e\",\"type\":0,\"location\":[23.38810565981729,42.686667706417126],\"status\":true}",42.686667706417126,23.38810565981729]];
+
+
+
+//
+
+
+    const droneColor = '#583470';
+    const parcelColor = 'lightblue';
+    const chargerColor = 'green';
+
+    const droneHtmlstyle = `
+    background-color: ${droneColor};
+    width: 20px;
+    height: 20px;
+    display: block;
+    left: -10px;
+    top: -10px;
+    position: relative;
+    border-radius: 20px 20px 0;
+    transform: rotate(45deg);
+    border: 1px solid #FFFFFF`
+
+    const parcelHtmlstyle = `
+    background-color: ${parcelColor};
+    width: 20px;
+    height: 20px;
+    display: block;
+    left: -10px;
+    top: -10px;
+    position: relative;
+    border-radius: 20px 20px 0;
+    transform: rotate(45deg);
+    border: 1px solid #FFFFFF`
+
+    const chargerHtmlstyle = `
+    background-color: ${chargerColor};
+    width: 20px;
+    height: 20px;
+    display: block;
+    left: -10px;
+    top: -10px;
+    position: relative;
+    border-radius: 20px 20px 0;
+    transform: rotate(45deg);
+    border: 1px solid #FFFFFF`
+
+    const droneIcon = L.divIcon({
+        className: "pin-drone",
+        iconAnchor: [0, 24],
+        labelAnchor: [-6, 0],
+        popupAnchor: [0, -36],
+        html: `<span style="${droneHtmlstyle}" />`
+    })
+
+    const parcelIcon = L.divIcon({
+        className: "pin-drone",
+        iconAnchor: [0, 24],
+        labelAnchor: [-6, 0],
+        popupAnchor: [0, -36],
+        html: `<span style="${parcelHtmlstyle}" />`
+    })
+
+    const chargerIcon = L.divIcon({
+        className: "pin-drone",
+        iconAnchor: [0, 24],
+        labelAnchor: [-6, 0],
+        popupAnchor: [0, -36],
+        html: `<span style="${chargerHtmlstyle}" />`
+    })
+
+
+  
+        var map = L.map('map').setView([42.697434,23.321422], 12);
         mapLink = 
             '<a href="http://hack.bg/">hack.bg</a>';
         L.tileLayer(
@@ -39,9 +105,21 @@
             maxZoom: 18,
             }).addTo(map);
 
-		for (var i = 0; i < planes.length; i++) {
-			marker = new L.marker([planes[i][1],planes[i][2]])
-				.bindPopup(planes[i][0])
+		for (var i = 0; i < drones.length; i++) {
+			marker = new L.marker([drones[i][1],drones[i][2]], {icon: droneIcon})
+				.bindPopup(drones[i][0])
+				.addTo(map);
+        }
+        
+        for (var i = 0; i < parcels.length; i++) {
+			marker = new L.marker([parcels[i][1],parcels[i][2]], {icon: parcelIcon})
+				.bindPopup(parcels[i][0])
+				.addTo(map);
+        }
+        
+        for (var i = 0; i < stations.length; i++) {
+			marker = new L.marker([stations[i][1],stations[i][2]], {icon: chargerIcon})
+				.bindPopup(stations[i][0])
 				.addTo(map);
 		}
                

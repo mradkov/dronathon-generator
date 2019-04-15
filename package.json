@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/mradkov/dronathon-generator#readme",
   "dependencies": {
+    "fs": "0.0.1-security",
     "node-uuid-generator": "^1.0.0",
     "robust-point-in-polygon": "^1.0.3",
     "yargs": "^13.2.2"
