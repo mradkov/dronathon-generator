@@ -26,12 +26,24 @@ fs.writeFile('./dist/drones.json', JSON.stringify(dronesObject), (err) => {
 // PARCELS
 let parcels = generator.parcels(argv.p);
 let parcelsObject = [];
+let parcelsObject1 = [];
 parcels.forEach(parcel => {
-  let p = Array(JSON.stringify(parcel), parcel.location[1], parcel.location[0]);
-  parcelsObject.push(p);
+  if (parcel.warehouse == 0) {
+    let p = Array(JSON.stringify(parcel), parcel.location[1], parcel.location[0]);
+    parcelsObject1.push(p);
+  }
+  else {
+    let p = Array(JSON.stringify(parcel), parcel.location[1], parcel.location[0]);
+    parcelsObject.push(p);
+  }
 });
 
 fs.writeFile('./dist/parcel.json', JSON.stringify(parcelsObject), (err) => {
+  if (err) throw err;
+  console.log('Parcels generated succesfully!');
+});
+
+fs.writeFile('./dist/parcel1.json', JSON.stringify(parcelsObject1), (err) => {
   if (err) throw err;
   console.log('Parcels generated succesfully!');
 });
@@ -60,17 +72,19 @@ setTimeout(() => {
   generateHTML(
     JSON.stringify(dronesObject),
     JSON.stringify(parcelsObject),
+    JSON.stringify(parcelsObject1),
     JSON.stringify(stationsObject),
     JSON.stringify(offices)
   )
 }, 500);
 
 
-function generateHTML(drones, parcels, stations, offices) {
+function generateHTML(drones, parcels, parcels1, stations, offices) {
 
   let html = `
     var drones = ${drones};
     var parcels = ${parcels};
+    var parcels1 = ${parcels1};
     var stations = ${stations};
     var offices = ${offices};
   `;

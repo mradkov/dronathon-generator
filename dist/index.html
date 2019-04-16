@@ -50,6 +50,13 @@
 				.addTo(map);
         }
         
+        // draw parcels
+        for (var i = 0; i < parcels1.length; i++) {
+            marker = new L.marker([parcels1[i][1],parcels1[i][2]], {icon: parcelIcon1})
+                .bindPopup(parcels1[i][0])
+                .addTo(map);
+        }
+        
         // draw stations
         for (var i = 0; i < stations.length; i++) {
 			marker = new L.marker([stations[i][1],stations[i][2]], {icon: chargerIcon})
