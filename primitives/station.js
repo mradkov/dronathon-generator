@@ -10,6 +10,13 @@ class Station {
         this.location = location;
 
         this.status = true;
+
+        this.chargingRate = 30;
+
+        // fast or slow charger
+        if (type == 1) {
+            this.chargingRate = 60;
+        }
     }
 
     charge() {

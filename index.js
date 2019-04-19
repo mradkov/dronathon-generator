@@ -19,7 +19,7 @@ drones.forEach(drone => {
   dronesObject.push(d);
 });
 
-fs.writeFile('./dist/drones/drones.json', JSON.stringify(dronesObject), (err) => {
+fs.writeFile('./dist/data/drones/drones.json', JSON.stringify(dronesObject), (err) => {
   if (err) throw err;
   console.log('Drones generated succesfully!');
 });
@@ -33,7 +33,7 @@ parcels.forEach(parcel => {
 });
 
 for (let i = 0; i < parcelsObject.length; i++) {
-  fs.writeFile(`./dist/parcels/parcel${i}.json`, JSON.stringify(parcelsObject[i]), (err) => {
+  fs.writeFile(`./dist/data/parcels/parcel${i}.json`, JSON.stringify(parcelsObject[i]), (err) => {
     if (err) throw err;
     console.log('Parcels generated succesfully!');
   });
@@ -47,7 +47,7 @@ chargingStations.forEach(station => {
   stationsObject.push(s);
 });
 
-fs.writeFile('./dist/stations/station.json', JSON.stringify(stationsObject), (err) => {
+fs.writeFile('./dist/data/stations/station.json', JSON.stringify(stationsObject), (err) => {
   if (err) throw err;
   console.log('Stations generated succesfully!');
 });

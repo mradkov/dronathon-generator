@@ -12,13 +12,16 @@ module.exports = {
                     },
                     drown: {
                         empty: 1,
-                        loaded: 1
+                        loaded: 2
                     }
                 },
                 storage: {
                     capacity: 3000
                 },
-                speed: [10,17]
+                speed: {
+                    empty: 10,
+                    loaded: 17
+                }
             },
 
             // type 2
@@ -29,12 +32,19 @@ module.exports = {
                     charge: {
                         normal: 0.3,
                         fast: 1
+                    },
+                    drown: {
+                        empty: 1,
+                        loaded: 2
                     }
                 },
                 storage: {
                     capacity: 1100
                 },
-                speed: [13,22]
+                speed: {
+                    empty: 13,
+                    loaded: 22
+                }
             }
         ]
     },
