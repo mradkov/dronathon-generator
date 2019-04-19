@@ -79,7 +79,8 @@ module.exports = {
         while(stations.length < count) {
             let newPoint = [helpers.randomWithRange(23.1, 23.5), helpers.randomWithRange(42.6, 42.8)];
             if (classifyPoint(sofiaPoly, newPoint) == -1) {
-                let station = new Station(Math.floor(Math.random()), [newPoint[0], newPoint[1]]);
+                let type = Math.random() < 0.5 ? 0 : 1;
+                let station = new Station(type, [newPoint[0], newPoint[1]]);
                 stations.push(station);
             }
         }
