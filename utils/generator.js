@@ -7,6 +7,17 @@ const config = require('../primitives/misc')
 const sofiaPoly = require('../geo/sofia-poly')
 const helpers = require('./helpers')
 
+const area = Array(
+    require('../geo/polys/area1'),
+    require('../geo/polys/area2'),
+    require('../geo/polys/area3'),
+    require('../geo/polys/area4'),
+    require('../geo/polys/area5'),
+    require('../geo/polys/area6'),
+    require('../geo/polys/area7')
+);
+
+
 //import regions
 
 module.exports = {
@@ -35,20 +46,11 @@ module.exports = {
                 let warehouse = Math.floor(helpers.randomWithRange(1,5)); 
 
                 // check region
-
-                    // central
-                    if (classifyPoint(config.warehouse[0].polygon, newPoint) == -1) {
-                        warehouse = 0;
+                area.forEach(function(areaPolygon, index) {
+                    if (classifyPoint(areaPolygon, newPoint) == -1) {
+                        warehouse = index;
                     }
-                    // airport
-
-                    // softuni
-
-                    // west
-
-                    // south
-
-                    // north
+                });
                 
                 let type = Math.round(Math.random());
                 let parcel = new Parcel(
