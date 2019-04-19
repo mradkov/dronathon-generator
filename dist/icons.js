@@ -7,26 +7,13 @@ const color5 = '#6c5ce7';
 const color6 = '#81ecec';
 
 const droneHtmlstyle = `
-    background: url(./drone.png);
+    background: url(./images/drone.png);
     width: 20px;
     height: 20px;
     display: block;
+    left: -10px;
+    top: -10px;
 `
-
-/*
-background-color: black;
-width: 20px;
-height: 20px;
-display: block;
-left: -10px;
-top: -10px;
-position: relative;
-border-radius: 20px 20px 0;
-transform: rotate(45deg);
-border: 1px solid #FFFFFF
-
-*/
-
 const droneIcon = L.divIcon({
     className: "pin-drone",
     iconAnchor: [0, 24],
@@ -180,25 +167,14 @@ const parcelIcon6 = L.divIcon({
 })
 
 const chargerHtmlstyle = `
-  background: url('./battery.png');
-  width: 20px;
-  height: 20px;
-  display: block;
-  `
-
-  /*
-background-color: green;
+  background: url('./images/battery.png');
   width: 20px;
   height: 20px;
   display: block;
   left: -10px;
   top: -10px;
   position: relative;
-  border-radius: 20px 20px 0;
-  transform: rotate(45deg);
-  border: 1px solid #FFFFFF
-  */
-
+  `
 const chargerIcon = L.divIcon({
     className: "pin-charger",
     iconAnchor: [0, 24],

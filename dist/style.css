@@ -5,8 +5,8 @@
 .label4 { background-color: #fab1a0;}
 .label5 { background-color: #6c5ce7;}
 .label6 { background-color: #81ecec;}
-.drone { background: url('./drone.png'); }
-.charging { background: url('./battery.png') }
+.drone { background: url('./images/drone.png'); }
+.charging { background: url('./images/battery.png') }
 
 .map-style {
     border: 2px solid black;
