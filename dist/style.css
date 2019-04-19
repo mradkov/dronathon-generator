@@ -1,6 +1,28 @@
+.label0 { background-color: #b8e994;}
+.label1 { background-color: #60a3bc;}
+.label2 { background-color: #B33771;}
+.label3 { background-color: #fdcb6e;}
+.label4 { background-color: #fab1a0;}
+.label5 { background-color: #6c5ce7;}
+.label6 { background-color: #81ecec;}
+.drone { background-color: black; }
+.charging { background-color: green; }
+
 .map-style {
     border: 2px solid black;
     border-radius: 6px;
     width: 800px;
     height: 600px;
+}
+
+.resources {
+    border: 2px dashed black;
+    border-radius: 6px;
+}
+
+.label {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    border-radius: 2px;
 }

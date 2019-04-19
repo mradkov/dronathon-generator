@@ -1,14 +1,10 @@
-/*
-
-0 - #b8e994
-1 - #60a3bc
-2 - #B33771
-3- #fdcb6e
-4 - #fab1a0
-5- #6c5ce7
-6- #81ecec
-
-*/
+const color0 = '#b8e994';
+const color1 = '#60a3bc';
+const color2 = '#B33771';
+const color3 = '#fdcb6e';
+const color4 = '#fab1a0';
+const color5 = '#6c5ce7';
+const color6 = '#81ecec';
 
 const droneHtmlstyle = `
   background-color: black;
@@ -31,14 +27,14 @@ const droneIcon = L.divIcon({
 })
 
 const parcelHtmlstyle = `
-  background-color: #b8e994;
+  background-color: ${color0};
   width: 20px;
   height: 20px;
   display: block;
   left: -10px;
   top: -10px;
   position: relative;
-  border-radius: 20px 20px 0;
+  border-radius: 0px 0px 0;
   transform: rotate(45deg);
   border: 1px solid #FFFFFF`
 
@@ -51,14 +47,14 @@ const parcelIcon = L.divIcon({
 })
 
 const parcelHtmlstyle1 = `
-  background-color: #60a3bc;
+  background-color: ${color1};
   width: 20px;
   height: 20px;
   display: block;
   left: -10px;
   top: -10px;
   position: relative;
-  border-radius: 20px 20px 0;
+  border-radius: 0px 0px 0;
   transform: rotate(45deg);
   border: 1px solid #FFFFFF`
 
@@ -72,14 +68,14 @@ const parcelIcon1 = L.divIcon({
 
 
 const parcelHtmlstyle2 = `
-  background-color: #B33771;
+  background-color: ${color2};
   width: 20px;
   height: 20px;
   display: block;
   left: -10px;
   top: -10px;
   position: relative;
-  border-radius: 20px 20px 0;
+  border-radius: 0px 0px 0;
   transform: rotate(45deg);
   border: 1px solid #FFFFFF`
 
@@ -93,14 +89,14 @@ const parcelIcon2 = L.divIcon({
 
 
 const parcelHtmlstyle3 = `
-  background-color: #fdcb6e;
+  background-color: ${color3};
   width: 20px;
   height: 20px;
   display: block;
   left: -10px;
   top: -10px;
   position: relative;
-  border-radius: 20px 20px 0;
+  border-radius: 0px 0px 0;
   transform: rotate(45deg);
   border: 1px solid #FFFFFF`
 
@@ -114,14 +110,14 @@ const parcelIcon3 = L.divIcon({
 
 
 const parcelHtmlstyle4 = `
-  background-color: #fab1a0;
+  background-color: ${color4};
   width: 20px;
   height: 20px;
   display: block;
   left: -10px;
   top: -10px;
   position: relative;
-  border-radius: 20px 20px 0;
+  border-radius: 0px 0px 0;
   transform: rotate(45deg);
   border: 1px solid #FFFFFF`
 
@@ -135,14 +131,14 @@ const parcelIcon4 = L.divIcon({
 
 
 const parcelHtmlstyle5 = `
-  background-color: #6c5ce7;
+  background-color: ${color5};
   width: 20px;
   height: 20px;
   display: block;
   left: -10px;
   top: -10px;
   position: relative;
-  border-radius: 20px 20px 0;
+  border-radius: 0px 0px 0;
   transform: rotate(45deg);
   border: 1px solid #FFFFFF`
 
@@ -155,14 +151,14 @@ const parcelIcon5 = L.divIcon({
 })
 
 const parcelHtmlstyle6 = `
-  background-color: #81ecec;
+  background-color: ${color6};
   width: 20px;
   height: 20px;
   display: block;
   left: -10px;
   top: -10px;
   position: relative;
-  border-radius: 20px 20px 0;
+  border-radius: 0px 0px 0;
   transform: rotate(45deg);
   border: 1px solid #FFFFFF`
 
@@ -195,7 +191,7 @@ const chargerIcon = L.divIcon({
 })
 
 const officeHtmlstyle = `
-  background-color: #b8e994;
+  background-color: ${color0};
   width: 44px;
   height: 44px;
   display: block;
@@ -207,7 +203,7 @@ const officeHtmlstyle = `
   border: 1px solid #FFFFFF`
 
   const officeHtmlstyle1 = `
-  background-color: #60a3bc;
+  background-color: ${color1};
   width: 44px;
   height: 44px;
   display: block;
@@ -219,7 +215,7 @@ const officeHtmlstyle = `
   border: 1px solid #FFFFFF`
 
 const officeHtmlstyle2 = `
-  background-color: #B33771;
+  background-color: ${color2};
   width: 44px;
   height: 44px;
   display: block;
@@ -231,7 +227,7 @@ const officeHtmlstyle2 = `
   border: 1px solid #FFFFFF`
 
 const officeHtmlstyle3 = `
-  background-color: #fdcb6e;
+  background-color: ${color3};
   width: 44px;
   height: 44px;
   display: block;
@@ -243,7 +239,7 @@ const officeHtmlstyle3 = `
   border: 1px solid #FFFFFF`
 
 const officeHtmlstyle4 = `
-  background-color: #fab1a0;
+  background-color: ${color4};
   width: 44px;
   height: 44px;
   display: block;
@@ -255,7 +251,7 @@ const officeHtmlstyle4 = `
   border: 1px solid #FFFFFF`
 
 const officeHtmlstyle5 = `
-  background-color: #6c5ce7;
+  background-color: ${color5};
   width: 44px;
   height: 44px;
   display: block;
@@ -267,7 +263,7 @@ const officeHtmlstyle5 = `
   border: 1px solid #FFFFFF`
 
 const officeHtmlstyle6  = `
-  background-color: #81ecec;
+  background-color: ${color6};
   width: 44px;
   height: 44px;
   display: block;
