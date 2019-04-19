@@ -1,6 +1,7 @@
 const generator = require('./utils/generator');
 const argv = require('yargs').argv
 const fs = require('fs')
+const offices = require('./geo/polys/warehouses')
 
 console.log("Initialing Dronathon Challenge:");
 console.log("...");
@@ -18,35 +19,25 @@ drones.forEach(drone => {
   dronesObject.push(d);
 });
 
-fs.writeFile('./dist/drones.json', JSON.stringify(dronesObject), (err) => {
+fs.writeFile('./dist/drones/drones.json', JSON.stringify(dronesObject), (err) => {
   if (err) throw err;
   console.log('Drones generated succesfully!');
 });
 
 // PARCELS
 let parcels = generator.parcels(argv.p);
-let parcelsObject = [];
-let parcelsObject1 = [];
+let parcelsObject = [[],[],[],[],[],[],[]];
 parcels.forEach(parcel => {
-  if (parcel.warehouse == 0) {
     let p = Array(JSON.stringify(parcel), parcel.location[1], parcel.location[0]);
-    parcelsObject1.push(p);
-  }
-  else {
-    let p = Array(JSON.stringify(parcel), parcel.location[1], parcel.location[0]);
-    parcelsObject.push(p);
-  }
+    parcelsObject[parcel.warehouse].push(p);
 });
 
-fs.writeFile('./dist/parcel.json', JSON.stringify(parcelsObject), (err) => {
-  if (err) throw err;
-  console.log('Parcels generated succesfully!');
-});
-
-fs.writeFile('./dist/parcel1.json', JSON.stringify(parcelsObject1), (err) => {
-  if (err) throw err;
-  console.log('Parcels generated succesfully!');
-});
+for (let i = 0; i < parcelsObject.length; i++) {
+  fs.writeFile(`./dist/parcels/parcel${i}.json`, JSON.stringify(parcelsObject[i]), (err) => {
+    if (err) throw err;
+    console.log('Parcels generated succesfully!');
+  });
+}
 
 // STATIONS
 let chargingStations = generator.stations(argv.s);
@@ -56,35 +47,45 @@ chargingStations.forEach(station => {
   stationsObject.push(s);
 });
 
-fs.writeFile('./dist/station.json', JSON.stringify(stationsObject), (err) => {
+fs.writeFile('./dist/stations/station.json', JSON.stringify(stationsObject), (err) => {
   if (err) throw err;
   console.log('Stations generated succesfully!');
 });
 
-var offices = [
-  ["Networking Coworking [Dronathon]",42.70571,23.32878],
-  ["Airport Sofia", 42.6932,23.4112]
-];
 
 // parcel ID to warehouse
-
 setTimeout(() => {
   generateHTML(
-    JSON.stringify(dronesObject),
-    JSON.stringify(parcelsObject),
-    JSON.stringify(parcelsObject1),
-    JSON.stringify(stationsObject),
-    JSON.stringify(offices)
+    dronesObject,
+    parcelsObject,
+    stationsObject,
+    offices
   )
 }, 500);
 
 
-function generateHTML(drones, parcels, parcels1, stations, offices) {
+function generateHTML(_drones, _parcels, _stations, _offices) {
+
+    let drones = JSON.stringify(_drones);
+    let parcels = JSON.stringify(_parcels[0]);
+    let parcels1 = JSON.stringify(_parcels[1]);
+    let parcels2 = JSON.stringify(_parcels[2]);
+    let parcels3 = JSON.stringify(_parcels[3]);
+    let parcels4 = JSON.stringify(_parcels[4]);
+    let parcels5 = JSON.stringify(_parcels[5]);
+    let parcels6 = JSON.stringify(_parcels[6]);
+    let stations = JSON.stringify(_stations);
+    let offices = JSON.stringify(_offices);
 
   let html = `
     var drones = ${drones};
     var parcels = ${parcels};
     var parcels1 = ${parcels1};
+    var parcels2 = ${parcels2};
+    var parcels3 = ${parcels3};
+    var parcels4 = ${parcels4};
+    var parcels5 = ${parcels5};
+    var parcels6 = ${parcels6};
     var stations = ${stations};
     var offices = ${offices};
   `;

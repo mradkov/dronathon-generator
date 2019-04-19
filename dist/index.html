@@ -8,10 +8,91 @@
         rel="stylesheet" 
         href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"
     />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
 
-    <div id="map" style="width: 800px; height: 600px"></div>
+    <div class="row">
+        <div class="col-md-8">
+            <div id="map" style="width: 800px; height: 600px"></div>
+        </div>
+        <div class="col-md-4">
+            You can download all the details here:
+            <ul>
+                <li>
+                    <a href="/drones/drones.json">Drones</a>
+                </li>
+                <li>
+                    <a href="/stations/station.json">Charging Stations</a>
+                </li>
+                <li>
+                    Parcels
+                    <ul>
+                        <li>
+                            <a href="/parcels/parcel0.json">Parcels Area 1</a>
+                        </li>
+                        <li>
+                            <a href="/parcels/parcel1.json">Parcels Area 2</a>
+                        </li>
+                        <li>
+                            <a href="/parcels/parcel2.json">Parcels Area 3</a>
+                        </li>
+                        <li>
+                            <a href="/parcels/parcel3.json">Parcels Area 4</a>
+                        </li>
+                        <li>
+                            <a href="/parcels/parcel4.json">Parcels Area 5</a>
+                        </li>
+                        <li>
+                            <a href="/parcels/parcel5.json">Parcels Area 6</a>
+                        </li>
+                        <li>
+                            <a href="/parcels/parcel6.json">Parcels Area 7</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/geo/polys/warehouses.js">Warehouses</a>
+                </li>
+            </ul>
+
+            As well as the city and areas poly cooridnates:
+            <ul>
+                <li>
+                    <a href="/geo/sofia-poly.js">Whole City</a>
+                </li>
+                <li>
+                    City Area
+                    <ul>
+                        <li>
+                            <a href="/geo/polys/area1.js">City Area 1</a>
+                        </li>
+                        <li>
+                            <a href="/geo/polys/area2.js">City Area 2</a>
+                        </li>
+                        <li>
+                            <a href="/geo/polys/area3.js">City Area 3</a>
+                        </li>
+                        <li>
+                            <a href="/geo/polys/area4.js">City Area 4</a>
+                        </li>
+                        <li>
+                            <a href="/geo/polys/area5.js">City Area 5</a>
+                        </li>
+                        <li>
+                            <a href="/geo/polys/area6.js">City Area 6</a>
+                        </li>
+                        <li>
+                            <a href="/geo/polys/area7.js">City Area 7</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
 
     <script
         src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js">
@@ -42,7 +123,7 @@
 				.bindPopup(drones[i][0])
 				.addTo(map);
         }
-        
+
         // draw parcels
         for (var i = 0; i < parcels.length; i++) {
 			marker = new L.marker([parcels[i][1],parcels[i][2]], {icon: parcelIcon})
@@ -56,6 +137,41 @@
                 .bindPopup(parcels1[i][0])
                 .addTo(map);
         }
+
+        // draw parcels
+        for (var i = 0; i < parcels2.length; i++) {
+            marker = new L.marker([parcels2[i][1],parcels2[i][2]], {icon: parcelIcon2})
+                .bindPopup(parcels2[i][0])
+                .addTo(map);
+        }
+
+        // draw parcels
+        for (var i = 0; i < parcels3.length; i++) {
+            marker = new L.marker([parcels3[i][1],parcels3[i][2]], {icon: parcelIcon3})
+                .bindPopup(parcels3[i][0])
+                .addTo(map);
+        }
+
+        // draw parcels
+        for (var i = 0; i < parcels4.length; i++) {
+            marker = new L.marker([parcels4[i][1],parcels4[i][2]], {icon: parcelIcon4})
+                .bindPopup(parcels4[i][0])
+                .addTo(map);
+        }
+
+        // draw parcels
+        for (var i = 0; i < parcels5.length; i++) {
+            marker = new L.marker([parcels5[i][1],parcels5[i][2]], {icon: parcelIcon5})
+                .bindPopup(parcels5[i][0])
+                .addTo(map);
+        }
+
+        // draw parcels
+        for (var i = 0; i < parcels6.length; i++) {
+        marker = new L.marker([parcels6[i][1],parcels6[i][2]], {icon: parcelIcon6})
+            .bindPopup(parcels6[i][0])
+            .addTo(map);
+        }
         
         // draw stations
         for (var i = 0; i < stations.length; i++) {
@@ -66,7 +182,7 @@
 
         //draw offices
         for (var i = 0; i < offices.length; i++) {
-			marker = new L.marker([offices[i][1],offices[i][2]], {icon: officeIcon})
+			marker = new L.marker([offices[i][1],offices[i][2]], {icon: officeIcon[i]})
 				.bindPopup(offices[i][0])
 				.addTo(map);
 		}
