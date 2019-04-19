@@ -5,8 +5,8 @@
 .label4 { background-color: #fab1a0;}
 .label5 { background-color: #6c5ce7;}
 .label6 { background-color: #81ecec;}
-.drone { background-color: black; }
-.charging { background-color: green; }
+.drone { background: url('./drone.png'); }
+.charging { background: url('./battery.png') }
 
 .map-style {
     border: 2px solid black;
@@ -21,8 +21,8 @@
 }
 
 .label {
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
     display: inline-block;
     border-radius: 2px;
 }
