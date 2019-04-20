@@ -2,6 +2,7 @@ const generator = require('./utils/generator');
 const argv = require('yargs').argv
 const fs = require('fs')
 const offices = require('./geo/polys/warehouses')
+const offices_parse = require('./geo/polys/warehouses_for_parse')
 
 console.log("Initialing Dronathon Challenge:");
 console.log("...");
@@ -52,6 +53,10 @@ fs.writeFile('./dist/data/stations/station.json', JSON.stringify(stationsObject)
   console.log('Stations generated succesfully!');
 });
 
+fs.writeFile('./dist/data/warehouses/warehouses.json', JSON.stringify(offices_parse), (err) => {
+  if (err) throw err;
+  console.log('Warehouses generated succesfully!');
+});
 
 // parcel ID to warehouse
 setTimeout(() => {
@@ -59,12 +64,13 @@ setTimeout(() => {
     dronesObject,
     parcelsObject,
     stationsObject,
-    offices
+    offices,
+    offices_parse
   )
 }, 500);
 
 
-function generateHTML(_drones, _parcels, _stations, _offices) {
+function generateHTML(_drones, _parcels, _stations, _offices, _offices_parse) {
 
     let drones = JSON.stringify(_drones);
     let parcels = JSON.stringify(_parcels[0]);
@@ -76,6 +82,7 @@ function generateHTML(_drones, _parcels, _stations, _offices) {
     let parcels6 = JSON.stringify(_parcels[6]);
     let stations = JSON.stringify(_stations);
     let offices = JSON.stringify(_offices);
+    let offices_parse = JSON.stringify(_offices_parse);
 
   let html = `
     var drones = ${drones};
@@ -88,6 +95,7 @@ function generateHTML(_drones, _parcels, _stations, _offices) {
     var parcels6 = ${parcels6};
     var stations = ${stations};
     var offices = ${offices};
+    var offices_parse = ${offices_parse};
   `;
 
   fs.writeFile('./dist/generated.js', html, (err) => {
