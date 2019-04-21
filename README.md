@@ -37,8 +37,8 @@ Generate challange:
 
 ### Additional Resources:
 
-Generated challange preview: https://hack.bg/dronathon/dist
-Google maps areas boundaries: https://drive.google.com/open?id=1sjpeQCsJk9DvtC24mMqbjcULksRPl9WG&usp=sharing
+- Generated challange preview: https://hack.bg/dronathon/dist
+- Google maps areas boundaries: https://drive.google.com/open?id=1sjpeQCsJk9DvtC24mMqbjcULksRPl9WG&usp=sharing
 
 
 
