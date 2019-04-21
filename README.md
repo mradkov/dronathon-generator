@@ -1,6 +1,6 @@
 # Dronathon - Blockchain Supply Chain Hackathon with Drones
 
-
+![Dronathon](https://raw.githubusercontent.com/mradkov/dronathon-generator/master/dronathon.png)
 
 ## Challenge Rules:
 1. Get 100 Packages delivered by 33 Drones to their Final Destinations
